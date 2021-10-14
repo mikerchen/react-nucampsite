@@ -4,7 +4,6 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 're
 class CampsiteInfo extends Component {
     constructor(props) {
         super(props);
-
     }
     renderCampsite(campsite) {
         return(
@@ -45,9 +44,11 @@ class CampsiteInfo extends Component {
         const campsite = this.props.campsites;
         if(campsite) {
             return(
-                <div className="row">
-                    {this.renderCampsite(campsite)}
-                    {this.renderComments(campsite.comments)}
+                <div className="container">
+                    <div className="row">
+                        {this.renderCampsite(campsite)}
+                        {this.renderComments(campsite.comments)}
+                    </div>
                 </div>
                 )
             }
