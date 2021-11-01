@@ -183,21 +183,15 @@ export const fetchPartners = () => dispatch => {
         .catch(error => dispatch(partnersFailed(error.message)));
 };
 
-export const postFeedback = (firstName, lastName, phoneNum, email, agree, contactType, feedback) => dispatch => {
+export const postFeedback = (feedback) => dispatch => {
 
-    const newFeedback = {
-        firstName,
-        lastName,
-        phoneNum,
-        email,
-        agree,
-        contactType,
-        feedback,
-    }
+    // const newFeedback = {
+    //     ...feedback
+    // }
 
     return fetch(baseUrl + 'feedback',{
             method: "POST",
-            body: JSON.stringify(newFeedback),
+            body: JSON.stringify(feedback),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -214,7 +208,7 @@ export const postFeedback = (firstName, lastName, phoneNum, email, agree, contac
         error => { throw error; }
     )
     .then(response => response.json())
-    .then(() => alert('Thank you for your feedback\n\n' + JSON.stringify(newFeedback)))
+    .then(() => alert('Thank you for your feedback\n\n' + JSON.stringify(feedback)))
     .catch(error => {
         console.log('post feedback', error.message);
         alert('Your feedback could not be posted\nError: ' + error.message);
