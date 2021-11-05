@@ -112,3 +112,4 @@ function PartnerList(props) {
 }
 
 export default About;
+
